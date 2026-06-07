@@ -1,0 +1,58 @@
+// TODO check field's types
+
+import {
+  BaseEntity,
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+
+import Issue from './Issue';
+import User from './User';
+import is, { type FieldValidators } from '@/utils/validation';
+import { ProjectCategory } from '@/constants/projects';
+
+@Entity()
+class Project extends BaseEntity {
+  static validations: FieldValidators = {
+    name: [is.required(), is.maxLength(100)],
+    url: is.url(),
+    description: is.maxLength(10000),
+    category: [is.required(), is.oneOf(Object.values(ProjectCategory))],
+  };
+
+  @PrimaryGeneratedColumn()
+  id!: number;
+
+  @Column('varchar')
+  name!: string;
+
+  @Column('varchar', { nullable: true })
+  url!: string | null;
+
+  @Column({ type: 'text', nullable: true })
+  description!: string | null;
+
+  @Column('varchar')
+  category!: ProjectCategory;
+
+  @CreateDateColumn({ type: 'timestamp' })
+  createdAt!: Date;
+
+  @UpdateDateColumn({ type: 'timestamp' })
+  updatedAt!: Date;
+
+  @OneToMany(() => Issue, (issue) => issue.project)
+  issues!: Issue[];
+
+  @ManyToMany(() => User, (user) => user.projects)
+  @JoinTable()
+  users!: User[];
+}
+
+export default Project;
