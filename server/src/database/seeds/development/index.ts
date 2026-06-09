@@ -4,9 +4,9 @@ import generateUser from './user';
 import generateProject from './project';
 import generateIssue from './issue';
 import generateComment from './comment';
-import { Comment, Issue, Project, User } from '@/entities';
-import { createEntity } from '@/utils/typeorm';
-import createDatabaseConnection from '@/database/connection';
+import { Comment, Issue, Project, User } from '#/entities';
+import { createEntity } from '#/utils/typeorm';
+import createDatabaseConnection from '#/database/connection';
 
 const seedUsers = (): Promise<User[]> => {
   const users = times(4, () => createEntity(User, generateUser()));

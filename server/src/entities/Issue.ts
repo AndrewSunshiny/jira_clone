@@ -17,8 +17,8 @@ import {
 import Comment from './Comment';
 import Project from './Project';
 import User from './User';
-import is, { type FieldValidators } from '@/utils/validation';
-import { IssuePriority, IssueStatus, IssueType } from '@/constants/issues.ts';
+import is, { type FieldValidators } from '#/utils/validation';
+import { IssuePriority, IssueStatus, IssueType } from '#/constants/issues.ts';
 
 @Entity()
 class Issue extends BaseEntity {

@@ -1,8 +1,8 @@
 import { faker } from '@faker-js/faker';
 import { sample, random } from 'lodash';
 
-import type Issue from '@/entities/Issue';
-import { IssueType, IssueStatus, IssuePriority } from '@/constants/issues';
+import type Issue from '#/entities/Issue';
+import { IssueType, IssueStatus, IssuePriority } from '#/constants/issues';
 
 const generateIssue = (data: Partial<Issue> = {}): Partial<Issue> => ({
   title: faker.company.catchPhrase(),

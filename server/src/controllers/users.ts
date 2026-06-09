@@ -1,10 +1,10 @@
 import { Router } from 'express';
 
-import seedGuestUserEntities from '@/database/seeds/guestUser';
-import User from '@/entities/User';
-import { catchErrors } from '@/errors';
-import { signToken } from '@/utils/authToken';
-import { createEntity } from '@/utils/typeorm';
+import seedGuestUserEntities from '#/database/seeds/guestUser';
+import User from '#/entities/User';
+import { catchErrors } from '#/errors';
+import { signToken } from '#/utils/authToken';
+import { createEntity } from '#/utils/typeorm';
 
 const router = Router();
 

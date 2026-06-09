@@ -14,8 +14,8 @@ import {
 
 import Issue from './Issue';
 import User from './User';
-import is, { type FieldValidators } from '@/utils/validation';
-import { ProjectCategory } from '@/constants/projects';
+import is, { type FieldValidators } from '#/utils/validation';
+import { ProjectCategory } from '#/constants/projects';
 
 @Entity()
 class Project extends BaseEntity {

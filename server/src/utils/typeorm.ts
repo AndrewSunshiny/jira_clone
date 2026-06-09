@@ -1,8 +1,8 @@
 import { EntityNotFoundError, type FindOneOptions } from 'typeorm';
 
-import { Project, User, Comment, Issue } from '@/entities';
-import { generateErrors } from '@/utils/validation';
-import { BadUserInputError } from '@/errors';
+import { Project, User, Comment, Issue } from '#/entities';
+import { generateErrors } from '#/utils/validation';
+import { BadUserInputError } from '#/errors';
 
 import { BaseEntity } from 'typeorm';
 

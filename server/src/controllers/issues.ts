@@ -1,10 +1,10 @@
 import { Router } from 'express';
 
-import Issue from '@/entities/Issue';
-import { catchErrors } from '@/errors';
-import { createEntity, deleteEntity, findEntityOrThrow, updateEntity } from '@/utils/typeorm';
-import { ensureString } from '@/utils/common';
-import { BadUserInputError } from '@/errors';
+import Issue from '#/entities/Issue';
+import { catchErrors } from '#/errors';
+import { createEntity, deleteEntity, findEntityOrThrow, updateEntity } from '#/utils/typeorm';
+import { ensureString } from '#/utils/common';
+import { BadUserInputError } from '#/errors';
 
 const router = Router();
 

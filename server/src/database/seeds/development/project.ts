@@ -1,8 +1,8 @@
 import { faker } from '@faker-js/faker';
 import { sample } from 'lodash';
 
-import type Project from '@/entities/Project';
-import { ProjectCategory } from '@/constants/projects';
+import type Project from '#/entities/Project';
+import { ProjectCategory } from '#/constants/projects';
 
 const generateProject = (data: Partial<Project> = {}): Partial<Project> => ({
   name: faker.company.name(),

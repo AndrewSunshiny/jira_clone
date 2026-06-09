@@ -1,7 +1,7 @@
 import jwt, { type SignOptions } from 'jsonwebtoken';
 import { isPlainObject } from 'lodash';
 
-import { InvalidTokenError } from '@/errors';
+import { InvalidTokenError } from '#/errors';
 
 export const signToken = (payload: object, options?: SignOptions) => {
   jwt.sign(payload, process.env.JWT_SECRET, {

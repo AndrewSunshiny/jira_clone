@@ -13,7 +13,7 @@ import {
 
 import Issue from './Issue';
 import User from './User';
-import is, { type FieldValidators } from '@/utils/validation';
+import is, { type FieldValidators } from '#/utils/validation';
 
 @Entity()
 class Comment extends BaseEntity {

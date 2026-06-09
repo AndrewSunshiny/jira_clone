@@ -1,9 +1,9 @@
 import { Router } from 'express';
 
-import Project from '@/entities/Project';
-import { BadUserInputError, catchErrors } from '@/errors';
-import { createEntity, deleteEntity, findEntityOrThrow, updateEntity } from '@/utils/typeorm';
-import { ensureString } from '@/utils/common';
+import Project from '#/entities/Project';
+import { BadUserInputError, catchErrors } from '#/errors';
+import { createEntity, deleteEntity, findEntityOrThrow, updateEntity } from '#/utils/typeorm';
+import { ensureString } from '#/utils/common';
 
 const router = Router();
 

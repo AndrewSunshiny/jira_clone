@@ -1,7 +1,7 @@
-import { ProjectCategory } from '@/constants/projects';
-import { IssueType, IssueStatus, IssuePriority } from '@/constants/issues';
-import { Issue, Project, User, Comment } from '@/entities';
-import { createEntity } from '@/utils/typeorm';
+import { ProjectCategory } from '#/constants/projects';
+import { IssueType, IssueStatus, IssuePriority } from '#/constants/issues';
+import { Issue, Project, User, Comment } from '#/entities';
+import { createEntity } from '#/utils/typeorm';
 
 const seedProject = (user: User): Promise<Project> =>
   createEntity(Project, {

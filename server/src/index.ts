@@ -4,12 +4,12 @@ import 'reflect-metadata';
 import express from 'express';
 import cors from 'cors';
 
-import projectsRouter from '@/controllers/projects';
-import issuesRouter from '@/controllers/issues';
-import createDatabaseConnection from '@/database/connection';
-import { authenticateUser } from '@/middleware/authentication';
-import { RouteNotFoundError } from '@/errors';
-import { errorHandler } from '@/errors/errorHandler';
+import projectsRouter from '#/controllers/projects';
+import issuesRouter from '#/controllers/issues';
+import createDatabaseConnection from '#/database/connection';
+import { authenticateUser } from '#/middleware/authentication';
+import { RouteNotFoundError } from '#/errors';
+import { errorHandler } from '#/errors/errorHandler';
 
 const establishDatabaseConnection = async (): Promise<void> => {
   try {

@@ -1,9 +1,9 @@
 import type { Request } from 'express';
 
-import { catchErrors, InvalidTokenError } from '@/errors';
-import { verifyToken } from '@/utils/authToken';
-import { findEntityOrThrow } from '@/utils/typeorm';
-import { User } from '@/entities';
+import { catchErrors, InvalidTokenError } from '#/errors';
+import { verifyToken } from '#/utils/authToken';
+import { findEntityOrThrow } from '#/utils/typeorm';
+import { User } from '#/entities';
 
 const getAuthTokenFromRequest = (req: Request): string | null => {
   const header = req.get('Authorization') || '';
