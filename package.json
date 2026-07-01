@@ -2,13 +2,6 @@
 	"name": "jira_clone",
 	"version": "1.0.0",
 	"author": "AndrewSunshiny",
-	"license": "MIT",
-	"scripts": {
-		"pre-commit:api": "cd api && npm run pre-commit",
-		"pre-commit:client": "cd client && npm run pre-commit",
-		"pre-commit": "npm run pre-commit:api && npm run pre-commit:client",
-		"install-deps": "npm install && cd api && npm install && cd ../client && npm install"
-	},
 	"devDependencies": {
 		"husky": "^3.1.0"
 	},
@@ -16,5 +9,12 @@
 		"hooks": {
 			"pre-commit": "npm run pre-commit"
 		}
+	},
+	"license": "MIT",
+	"scripts": {
+		"pre-commit:api": "cd api && npm run pre-commit",
+		"pre-commit:client": "cd client && npm run pre-commit",
+		"pre-commit": "npm run pre-commit:api && npm run pre-commit:client",
+		"install-deps": "npm install && cd api && npm install && cd ../client && npm install"
 	}
 }

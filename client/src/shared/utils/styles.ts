@@ -22,7 +22,7 @@ export const color = {
   borderLight: '#D8DDE6',
   borderMedium: '#B9BDC4',
   borderBlue: '#C5D3EB',
-};
+} as const;
 
 export const sizes = {
   appNavBarLeftWidth: 75,
@@ -45,7 +45,13 @@ export const font = {
 };
 
 type MixinColor = (colorValue: ColorLike, amount: number) => string;
-type MixinCustomEl = ({ width, background }?: { width?: number; background?: string }) => string;
+type MixinCustomEl = ({
+  width,
+  background,
+}?: {
+  width?: number;
+  background?: string | MixinColor;
+}) => string;
 
 interface TypedMixin {
   darken: MixinColor;
@@ -56,10 +62,16 @@ interface TypedMixin {
   link: (colorValue?: ColorLike) => string;
 }
 
-type Mixin = TypedMixin
-  & Omit<Record<string, string | MixinColor | MixinCustomEl>, keyof TypedMixin>;
+// TODO: find a better way or return to explicit typing
+function createMixin<T extends Record<string, any>>(
+  impl: T,
+): {
+  [K in keyof T]: K extends keyof TypedMixin ? TypedMixin[K] : string;
+} {
+  return impl as any;
+}
 
-export const mixin: Mixin = {
+export const mixin = createMixin({
   darken: (colorValue: ColorLike, amount: number) => Color(colorValue).darken(amount).string(),
   lighten: (colorValue: ColorLike, amount: number) => Color(colorValue).lighten(amount).string(),
   rgba: (colorValue: ColorLike, opacity: number) => Color(colorValue).alpha(opacity).string(),
@@ -171,4 +183,4 @@ export const mixin: Mixin = {
       font-size: 14px;
     }
   `,
-};
+});

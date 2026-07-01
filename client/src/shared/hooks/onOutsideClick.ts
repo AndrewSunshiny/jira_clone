@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
-import type { RefObject } from 'react';
+import type { Ref, RefObject } from 'react';
 
 const useOnOutsideClick = (
-  $elementRef: RefObject<HTMLElement>,
+  $elementRef: Ref<HTMLElement>,
   isListening: boolean,
   onOutsideClick: () => void,
 ) => {
@@ -15,6 +15,8 @@ const useOnOutsideClick = (
     const handleMouseUp = (event: MouseEvent) => {
       if (
         event.button === 0
+        && $elementRef
+        && 'current' in $elementRef
         && !$elementRef.current?.contains($mouseDownTargetRef.current as Node)
         && !$elementRef.current?.contains(event.target as Node)
       ) {
