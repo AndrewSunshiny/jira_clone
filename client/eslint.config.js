@@ -52,6 +52,10 @@ export default tseslint.config(
       '@typescript-eslint/no-unused-vars': 'off',
 
       'react/react-in-jsx-scope': 'off',
+      'react/state-in-constructor': 0,
+      'react/jsx-props-no-spreading': 0,
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
     },
   },
 );

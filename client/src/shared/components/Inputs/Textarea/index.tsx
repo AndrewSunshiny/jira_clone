@@ -1,10 +1,10 @@
 import { forwardRef } from 'react';
-import { type Ref } from 'react';
+import type { Ref, ComponentProps } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 
 import StyledTextarea from './styles';
 
-interface Props {
+interface Props extends ComponentProps<typeof TextareaAutosize> {
   className?: string;
   invalid?: boolean;
   minRows?: number;
