@@ -13,6 +13,7 @@ type OwnProps = {
   value?: string | number | null;
   filter?: RegExp;
   onChange?: InputChangeHandler;
+  children?: React.ReactNode;
 };
 type Props = Omit<ComponentProps<'input'>, keyof OwnProps> & OwnProps;
 const InputComponent = (
@@ -23,6 +24,7 @@ const InputComponent = (
     invalid = false,
     filter = undefined,
     onChange = () => {},
+    children = null,
     ...inputProps
   }: Props,
   ref: Ref<HTMLInputElement>,
@@ -37,6 +39,7 @@ const InputComponent = (
     <StyledInput className={className} $icon={icon} $invalid={invalid}>
       {!!icon && <Icon type={icon} />}
       <input {...inputProps} onChange={handleChange} ref={ref} />
+      {children}
     </StyledInput>
   );
 };
